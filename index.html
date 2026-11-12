@@ -1,0 +1,125 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#faf7f3"><title>脚佛脚美味亚网 · 阅读手帖</title><style>:root{--bg:#faf7f3;--ink:#302d2c;--muted:#8a817c;--accent:#ad6c79;--line:#e9dfda}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Noto Sans SC',sans-serif}.wrap{max-width:900px;margin:auto;padding:28px 19px 90px}header{padding:40px 0 24px;border-bottom:1px solid var(--line)}.eyebrow{font-size:11px;letter-spacing:3px;color:var(--accent);text-transform:uppercase}h1{font-family:Georgia,serif;font-size:clamp(30px,6vw,51px);font-weight:500;letter-spacing:-1px;margin:13px 0}header p{color:var(--muted);line-height:1.8;font-size:13px}.controls{position:sticky;top:0;background:#faf7f3ed;backdrop-filter:blur(14px);padding:18px 0;z-index:2}.search{width:100%;border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px 17px;font-size:15px;outline:none}.tabs,.filters{display:flex;gap:9px;overflow-x:auto;padding:13px 0 3px}.tabs button,.filters button{border:1px solid var(--line);background:transparent;border-radius:30px;padding:9px 16px;color:var(--muted);white-space:nowrap;cursor:pointer}.tabs button.active,.filters button.active{background:var(--ink);color:white;border-color:var(--ink)}.filters button{font-size:12px;padding:7px 12px}.meta{font-size:12px;color:var(--muted);padding:12px 0 20px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.item{background:white;border:1px solid var(--line);border-radius:17px;padding:20px;display:flex;flex-direction:column;min-height:185px}.top{display:flex;justify-content:space-between;gap:8px}.tag{font-size:11px;color:var(--accent);background:#f8edf0;border-radius:20px;padding:5px 9px}.heart{border:0;background:transparent;font-size:21px;color:#c4b7b6;cursor:pointer}.heart.on{color:#d46b83}.item h2{font-size:17px;line-height:1.55;margin:14px 0 7px;font-weight:600;overflow-wrap:anywhere}.desc{color:#746c68;font-size:13px;line-height:1.7;flex:1;white-space:pre-line}.bottom{display:flex;align-items:center;justify-content:space-between;margin-top:15px;padding-top:13px;border-top:1px solid #f1ebe8}.bottom a{color:var(--accent);font-size:13px;text-decoration:none;font-weight:600}.read{font-size:12px;color:var(--muted);display:flex;gap:5px;align-items:center}.empty{text-align:center;padding:70px 15px;color:var(--muted)}footer{padding:40px 0;text-align:center;font-size:12px;color:var(--muted)}@media(max-width:570px){.grid{grid-template-columns:1fr}.item{min-height:160px}header{padding-top:18px}}</style></head><body><div class="wrap"><header><div class="eyebrow">A little reading archive · 2026</div><h1>脚佛脚美味亚网 ♡</h1><p>一个私人阅读手帖 · 原推荐语与作品链接来自 Notion 合集。<br>收藏与已读状态仅保存在当前浏览器中。</p></header><div class="controls"><input class="search" id="q" placeholder="搜索作品名 / 设定 / 推荐语…"><div class="tabs" id="tabs"></div><div class="filters" id="filters"></div></div><div class="meta" id="count"></div><main class="grid" id="grid"></main><footer>Made for slow reading ♡ · 作品版权归原作者所有<br>本页为书单导航，不转载小说正文。</footer></div><script>
+const raw=`riyu|犬与狼的时间|连载|abo+微现背|https://www.asianfanfics.com/story/view/1710351/1/n-a
+riyu|如见火光|已完结|向哨+先婚后爱。就两个字：美味。|https://www.asianfanfics.com/story/view/1676752/n-a
+riyu|性爱大师|已完结|限制级比较多。美味。|https://www.asianfanfics.com/story/view/1706135/n-a
+riyu|1次可能会有些尴尬，但100次的话性质就变了|已完结|限制级多+论坛体|https://www.asianfanfics.com/story/view/1736852/1-100
+riyu|前进吧，漫画家！|已完结|题材超级有意思！|https://www.asianfanfics.com/story/view/1696831/n-a
+riyu|禁止翻阅BL|已完结|吼吼是我喜欢的发小设定。。|https://www.asianfanfics.com/story/view/1694795/bl
+riyu|拜托了小猫咪|已完结|神作无需多言|https://www.asianfanfics.com/story/view/1670267/n-a
+riyu|偷情二加一|已完结|真的美味但是貌似是be结局。|https://www.asianfanfics.com/story/view/1624685/n-a
+riyu|某天和队友被关进了九号房间|已完结|现背 看完很温暖。。|https://www.asianfanfics.com/story/view/1715191/riyu
+riyu|比女孩可爱的理由|已完结|现背|https://www.asianfanfics.com/story/view/1703536/1/n-a
+riyu|右手定则|已完结|赛车手x粉丝|https://www.asianfanfics.com/story/view/1696861/n-a
+riyu|东京男美食图鉴|已完结|美味。|https://www.asianfanfics.com/story/view/1643240/n-a
+riyu|蠢人|短篇|现背 这个完全脚佛风味|https://www.asianfanfics.com/story/view/1683761/n-a
+riyu|坏游戏|已完结|限制级咳咳|https://www.asianfanfics.com/story/view/1725107/n-a
+riyu|圣域之樱|已完结|有宗教元素 好看|https://www.asianfanfics.com/story/view/1701336/n-a
+riyu|关于小志的所有事|短篇|现背 也是脚佛风味。吃美了|https://www.asianfanfics.com/story/view/1688090/n-a
+riyu|日日是好日|已完结|厌食症x富家少爷 温暖的一篇|https://www.asianfanfics.com/story/view/1651389/n-a
+riyu|透明的你|连载？|日系 青春 运动|https://www.asianfanfics.com/story/view/1622622/n-a
+riyu|随你屌便|连载|av演员x产品组长|https://www.asianfanfics.com/story/view/1765257/n-a
+riyu|蜂蜜陷阱|已完结|破塔 abo|https://www.asianfanfics.com/story/view/1695456/1/n-a
+riyu|一千零一夜|连载|网黄情侣|https://www.asianfanfics.com/story/view/1581723/riyu
+riyu|喜欢的人|短篇|咳咳这是我最喜欢的一篇 真的很有才。网黄x死宅|https://www.asianfanfics.com/story/view/1691380/n-a
+riyu|燧火|已完结|abo|https://www.asianfanfics.com/story/view/1629771/n-a
+riyu|负上加负|短篇|破塔 两个疯子。|https://www.asianfanfics.com/story/view/1653096/n-a
+riyu|辩论|已完结|宿敌就是…|https://www.asianfanfics.com/story/view/1727946/1/n-a
+riyu|圣水洞复仇者联盟|已完结|破塔|https://www.asianfanfics.com/story/view/1687884/n-a
+riyu|喵喵死库水|连载|限制级 猫塑|https://www.asianfanfics.com/story/view/1754776/n-a
+riyu|orion 猎户座|连载|伪骨（？有1出场|https://www.asianfanfics.com/story/view/1763442/orion
+riyu|错误修复请求|已完结|办公室题材|https://www.asianfanfics.com/story/view/1676668/1/n-a
+riyu|不需要爱情|短篇|超能力设定 be|https://www.asianfanfics.com/story/view/1722653/1/n-a
+riyu|睡不着！|已完结|破塔 爱豆x吃播|https://www.asianfanfics.com/story/view/1715367/1/n-a
+riyu|乱念|已完结|破塔 炮友转正|https://www.asianfanfics.com/story/view/1683327/2/n-a
+riyu|pochakawa|短篇|破塔 这个很萌|https://www.asianfanfics.com/story/view/1744936/pochakawa
+riyu|扭曲爱意表达的积极效果|已完结|破塔|https://www.asianfanfics.com/story/view/1731649/1/n-a
+riyu|X选择了你|已完结|破塔 换乘恋爱|https://www.asianfanfics.com/story/view/1722724/1/x
+riyu|外星人住在高円寺|已完结|破塔 be但这个真的超好看…|https://www.asianfanfics.com/story/view/1738098/n-a
+riyu|丘比特转正指南|已完结|人类x丘比特 超萌|https://www.asianfanfics.com/story/view/1684424/1/n-a
+riyu|丑男的恋爱概率论|短篇|又是我爱的发小！|https://www.asianfanfics.com/story/view/1645341/n-a
+riyu|猫咪错送事件|连载|破塔 很可爱|https://www.asianfanfics.com/story/view/1710658/n-a
+riyu|冲坡屋顶的外星大人|已完结|破塔经典作|https://www.asianfanfics.com/story/view/1702848/n-a
+riyu|带我走|短篇|be 好痛、|https://www.asianfanfics.com/story/view/1646554/n-a
+riyu|过度依赖|已完结|伪骨|https://www.asianfanfics.com/story/view/1586203/4/n-a
+riyu|编辑大人为何如此|已完结|美味。|https://www.asianfanfics.com/story/view/1622899/riyu
+riyu|烟花从侧面看，是圆的还是扁的|已完结|be 好好看。|https://www.asianfanfics.com/story/view/1588052/1/n-a
+riyu|青春期|短篇|美味。|https://www.asianfanfics.com/story/view/1575657/n-a
+riyu|手冲玩家|短篇|限制级 和微逼有篇捡手机貌似是前后篇！很美味|https://www.asianfanfics.com/story/view/1738585/n-a
+riyu|Bunny Wants (K)U!|已完结|破塔 人类x兔子|https://www.asianfanfics.com/story/view/1709353/bunny-wants-k-u
+riyu|丈夫失格|已完结|破塔|https://www.asianfanfics.com/story/view/1645156/n-a
+riyu|请多关照狼先生|已完结|破塔 狼x人类 好像是拜托了小猫咪的外传 也很美味！|https://www.asianfanfics.com/story/view/1715127/n-a
+riyu|捡来的猫|短篇|限制级 设定有两个u|https://www.asianfanfics.com/story/view/1693141/riyu
+riyu|一半的概率是|已完结|破塔 宗教元素 震撼。|https://www.asianfanfics.com/story/view/1675837/n-a
+riyu|就这样吧|已完结|破塔 兽人设定|https://www.asianfanfics.com/story/view/1740518/1/n-a
+riyu|有机速食|短篇|破塔 很有意思！|https://www.asianfanfics.com/story/view/1738927/n-a
+riyu|真爱粉的心情停不下来|短篇|破塔 好看。有才。|https://www.asianfanfics.com/story/view/1705172/n-a
+riyu|请摘下猫面具|短篇|破塔 兽人设定|https://www.asianfanfics.com/story/view/1768372/1/n-a
+riyu|Love Mark！|短篇|破塔|https://www.asianfanfics.com/story/view/1707435/l-ve-m-rk
+riyu|爱之毒|已完结|破塔 伪骨|https://www.asianfanfics.com/story/view/1680787/n-a
+riyu|something big|已完结|破塔|https://www.asianfanfics.com/story/view/1741787/something-big
+riyu|理论上|短篇|破塔|https://www.asianfanfics.com/story/view/1734422/n-a
+riyu|在酒店前台兼职时偶遇帅哥同学来开房|短篇|嗯嗯好想成为这个前台|https://www.asianfanfics.com/story/view/1769156/n-a
+riyu|Mom share|短篇|破塔 骨科|https://www.asianfanfics.com/story/view/1718374/mom-share
+riyu|他不喜欢我的第n天|短篇|现背 和小志那篇很像 酸涩、，|https://www.asianfanfics.com/story/view/1717867/n
+riyu|诅咒在我的右侧|短篇|破塔 有点恐怖但看得很爽|https://www.asianfanfics.com/story/view/1676376/n-a
+riyu|Q.有因为肢体接触而被驯服的案例吗|短篇|破塔 可爱|https://www.asianfanfics.com/story/view/1754220/q
+riyu|super卡哇伊喵喵猫咪侠也想要爱|短篇|破塔 这篇也很萌呀|https://www.asianfanfics.com/story/view/1728678/super
+riyu|战胜寒冬的最完美办法|短篇|破塔 好温暖。|https://www.asianfanfics.com/story/view/1700879/n-a
+riyu|皇家美容事件|短篇|破塔 刑警x女装风俗店长|https://www.asianfanfics.com/story/view/1691482/n-a
+riyu|理智的爱|已完结|破塔 震撼。看完有戒断反应。完全两个疯子|https://www.asianfanfics.com/story/view/1688918/n-a
+riyu|水泼落地|已完结|伪骨|https://www.asianfanfics.com/story/view/1646688/riyu
+riyu|离这些家伙远一点|短篇|破塔 副cp是馒牛 很可爱。外星人降临地球的故事|https://www.asianfanfics.com/story/view/1739613/n-a
+riyu|笨蛋❤️笨蛋|短篇|如题 两个笨蛋|https://www.asianfanfics.com/story/view/1730864/n-a
+riyu|被过度保护的小猫咪|短篇|破塔 兽人|https://www.asianfanfics.com/story/view/1706632/1/n-a
+riyu|失败是成功之母|已完结|破塔 好看。|https://www.asianfanfics.com/story/view/1682214/n-a
+riyu|Love Kill Mont-Blanc|短篇|破塔 可爱|https://www.asianfanfics.com/story/view/1679837/love-kill-mont-blanc
+riyu|钥匙扣承载着爱|短篇|破塔|https://www.asianfanfics.com/story/view/1676259/n-a
+riyu|异性恋警报|短篇|破塔|https://www.asianfanfics.com/story/view/1755531/1/n-a
+riyu|Hullehulle Toys|已完结|破塔 像看了一部日腐|https://www.asianfanfics.com/story/view/1709692/hullehulle-toys
+riyu|外星人茧居族|短篇|看得我好想哭么。|https://www.asianfanfics.com/story/view/1695745/n-a
+riyu|Cute Bunny Loop|短篇|破塔 狼兽人x兔兽人|https://www.asianfanfics.com/story/view/1686105/cute-bunny-loop
+riyu|耳道立体平衡|短篇|破塔 说唱歌手x老师|https://www.asianfanfics.com/story/view/1678876/n-a
+riyu|What Is Love|短篇|破塔 社畜x机器人 萌|https://www.asianfanfics.com/story/view/1714956/what-is-love
+riyu|Substance in Tokyo|短篇|破塔 限制级 注意前面有性转|https://www.asianfanfics.com/story/view/1700026/1/substance-in-tokyo
+riyu|言情场面|短篇|破塔 速记员xBL小说作家|https://www.asianfanfics.com/story/view/1695352/1/n-a
+riyu|蹦-跳-蹦-跳|短篇|破塔 黑猫x兔子|https://www.asianfanfics.com/story/view/1772417/1/n-a
+riyu|爱2000|短篇|破塔 好像看了一部日腐|https://www.asianfanfics.com/story/view/1744827/story-2000
+riyu|不能停止麦麸！|已完结|破塔 选秀设定|https://www.asianfanfics.com/story/view/1739240/n-a
+riyu|One Man Dog|短篇|破塔 这篇我真不行了吧有才|https://www.asianfanfics.com/story/view/1738364/1/one-man-dog
+riyu|Custody|短篇|破塔 骨科但年龄逆转|https://www.asianfanfics.com/story/view/1715645/1/custody
+riyu|家庭|短篇|破塔 真骨 美味|https://www.asianfanfics.com/story/view/1686891/n-a
+riyu|L3VE~☆|短篇|破塔 爱豆x站哥|https://www.asianfanfics.com/story/view/1766931/l3ve
+riyu|兄弟情结|短篇|伪骨|https://www.asianfanfics.com/story/view/1753752/1/n-a
+riyu|我就是喵喵|短篇|破塔 这个很好看|https://www.asianfanfics.com/story/view/1738748/n-a
+riyu|天真有邪|短篇|好看|https://www.asianfanfics.com/story/view/1635987/n-a
+riyu|书呆子天赋|已完结|破塔 这篇小众但是好看 很搞笑！|https://www.asianfanfics.com/story/view/1774130/n-a
+riyu|猫咪派对|短篇|破塔 好萌呀|https://www.asianfanfics.com/story/view/1678252/1/n-a
+riyu|复制体时代的生存法则|连载|破塔 这个我会一直蹲后续的。|https://www.asianfanfics.com/story/view/1772845/n-a
+riyu|眼下的香气|连载|破塔 古代宫廷au 作者说是限制级！|https://posty.pe/zh/pfy75xqd
+riyu|飞蛾扑火|已完结|破塔 很好吃的一篇伪骨abo|https://posty.pe/zh/p4ldt76d
+shiku|坏事|已完结|破塔 百分二老师的作品 含金量不多赘述了。|https://www.asianfanfics.com/story/view/1640928/n-a
+shiku|男大A某|已完结|破塔 好痛。看完有戒断|https://www.asianfanfics.com/story/view/1624438/a
+shiku|男大B某|已完结|破塔 这个记得是he（和A某相比）|https://www.asianfanfics.com/story/view/1691539/b
+shiku|Back on Track|已完结|破塔 前面看得我好痛吧。。|https://www.asianfanfics.com/story/view/1646911/1/back-on-track
+shiku|VILLAIN BOYS|已完结|破塔 百分二老师又一巨作|https://www.asianfanfics.com/story/view/1650377/1/villain-boys
+shiku|Come Over|已完结|破塔 空少x空少|https://www.asianfanfics.com/story/view/1635064/come-over
+shiku|拜托请把音量调大点|已完结|破塔 神作。神作。看得我好想哭。特别好看|https://www.asianfanfics.com/story/view/1672558/n-a
+shiku|拜托请和我出演青春爱情电影吧！|已完结|真的就像看了一部电影|https://www.asianfanfics.com/story/view/1716094/n-a
+shiku|老师，请讲讲您的初恋故事吧|已完结|破塔 百分二 好看。特别好看。|https://www.asianfanfics.com/story/view/1653074/n-a
+shiku|白夜经|已完结|破塔 百分二 宗教元素 我的top1。震撼|https://www.asianfanfics.com/story/view/1701551/n-a
+shiku|狼的初恋直至坟墓|已完结|破塔 百分二|https://www.asianfanfics.com/story/view/1633061/n-a
+shiku|天降外星人|短篇|好萌哦|https://www.asianfanfics.com/story/view/1732210/1/n-a
+shiku|焕然一新|短篇|破塔 情侣拌嘴|https://www.asianfanfics.com/story/view/1670418/n-a
+shiku|404 Not Found：通信错误！|已完结|破塔 有末子 好适合圣诞看呀|https://www.asianfanfics.com/story/view/1685383/1/404-not-found
+shiku|humanoid dreaming|已完结|破塔 机器人设定|https://www.asianfanfics.com/story/view/1637070/1/humanoid-dreaming
+shiku|Daddy issue|连载|破塔 美味。|https://www.asianfanfics.com/story/view/1682640/1/daddy-issue
+shiku|AFTER CLOSING|已完结|破塔 向哨 百分二巨作+1。|https://www.asianfanfics.com/story/view/1653644/1/after-closing
+shiku|太子妃养成计划|已完结|超级可爱么。|https://www.asianfanfics.com/story/view/1643993/1/n-a
+shiku|乱世奇谈|已完结|破塔 百分二 好痛。有戒断反应|https://www.asianfanfics.com/story/view/1776119/n-a
+shiku|哥哥的人类男友|短篇|破塔 吸血鬼设定 哎呀很萌|https://www.asianfanfics.com/story/view/1677019/1/n-a
+shiku|我看见了我新生的孤独|短篇||https://www.asianfanfics.com/story/view/1645684/n-a
+shiku|今年不一样|已完结|破塔 百分二老师。太强了啊。。|https://www.asianfanfics.com/story/view/1733614/a
+shiku|Fukona少年症候群|已完结|破塔 好坤。|https://www.asianfanfics.com/story/view/1744937/1/fukona
+shiku|Single Daddy Cliche|已完结|破塔 百分二 好看！！|https://www.asianfanfics.com/story/view/1683907/single-daddy-cliche`;
+const data=raw.trim().split('\n').map((s,i)=>{const [group,title,status,desc,url]=s.split('|');return {id:i,group,title,status,desc,url}});let group='全部',filter='全部',query='';const fav=new Set(JSON.parse(localStorage.getItem('wish-favs')||'[]')),read=new Set(JSON.parse(localStorage.getItem('wish-read')||'[]'));const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));function render(){document.getElementById('tabs').innerHTML=['全部','riyu','shiku','收藏'].map(x=>`<button class="${x===group?'active':''}" data-group="${x}">${x==='全部'?'全部作品':x==='收藏'?'♡ 我的收藏':x}</button>`).join('');document.getElementById('filters').innerHTML=['全部','已完结','连载','短篇','未读'].map(x=>`<button class="${x===filter?'active':''}" data-filter="${x}">${x}</button>`).join('');const items=data.filter(x=>(group==='全部'||(group==='收藏'?fav.has(x.id):x.group===group))&&(filter==='全部'||(filter==='未读'?!read.has(x.id):filter==='连载'?x.status.includes('连载'):x.status===filter))&&[x.title,x.desc,x.status,x.group].join(' ').toLowerCase().includes(query));document.getElementById('count').textContent=`找到 ${items.length} 篇作品 · 已读 ${read.size} · 收藏 ${fav.size}`;document.getElementById('grid').innerHTML=items.length?items.map(x=>`<article class="item"><div class="top"><span class="tag">${esc(x.group)} · ${esc(x.status)}</span><button class="heart ${fav.has(x.id)?'on':''}" data-fav="${x.id}" aria-label="收藏">${fav.has(x.id)?'♥':'♡'}</button></div><h2>${esc(x.title)}</h2><div class="desc">${esc(x.desc)}</div><div class="bottom"><a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a><label class="read"><input type="checkbox" data-read="${x.id}" ${read.has(x.id)?'checked':''}> 已读</label></div></article>`).join(''):'<div class="empty">没有找到匹配的作品 ♡</div>'}document.addEventListener('click',e=>{let el=e.target.closest('[data-group],[data-filter],[data-fav]');if(!el)return;if(el.dataset.group!==undefined)group=el.dataset.group;else if(el.dataset.filter!==undefined)filter=el.dataset.filter;else{let n=Number(el.dataset.fav);fav.has(n)?fav.delete(n):fav.add(n);localStorage.setItem('wish-favs',JSON.stringify([...fav]))}render()});document.addEventListener('change',e=>{if(e.target.dataset.read!==undefined){let n=Number(e.target.dataset.read);e.target.checked?read.add(n):read.delete(n);localStorage.setItem('wish-read',JSON.stringify([...read]));render()}});document.getElementById('q').addEventListener('input',e=>{query=e.target.value.trim().toLowerCase();render()});render();
+</script></body></html>
